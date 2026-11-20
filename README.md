@@ -9,8 +9,8 @@ Roger Cooperman — https://orcid.org/0009-0009-5011-2135
 A.E. Petrunina V.V. — https://orcid.org/0009-0002-4595-736X
 XISOSIS, Vienna, 20 November 2026
 
-- GitHub: `[GITHUB REPOSITORY URL — PLACEHOLDER]`
-- DOI: `[DOI — PLACEHOLDER]`
+- GitHub: https://github.com/teknoquants/Weak-Coupling-Matching-and-the-Running-Time-Unit-Under-Spatial-Blocking-in-SU-N-Lattice-Yang-Mills
+- DOI: https://doi.org/10.5281/zenodo.24395118
 
 ## Run
 
