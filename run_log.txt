@@ -1,0 +1,68 @@
+== Part 1 (anisotropy is a time unit)
+  [PASS] operator identity H(gE,gB) = xi H(g) (one plaquette, 5 random couplings; relative error)  (3.8e-16)
+  [PASS] gap H(gE,gB) = xi gap H(g)  (7.1e-15)
+  [PASS] same normalized ground state  (1.1e-16)
+  [PASS] Corollary 1.2: r_k = 4 g_k^2/g_{k+1}^2 and r_k^xi = (xi_k/xi_{k+1}) r_k
+  [PASS] lifting convention: Gamma^xi >= (1-eta) xi_{k+1} m_iso  <=>  Gamma^iso >= (1-eta)(xi_{k+1}/xi_k) m_iso
+  -> Part 1 (anisotropy is a time unit): 5/5 checks passed
+  PASS  validate_part1_time_unit.py  (0 s)
+== Part 2 (electric and magnetic matching)
+  [PASS] xi_out = sqrt(YB/YE) = 1 + kappa x + O(x^2), kappa = (kE - kB)/2
+  [PASS] g_out^-2 = sqrt(YE YB) = y - A - kbar + O(x), kbar = (kE + kB)/2
+  [PASS] coupling checkpoint: common decrement A forces kbar = 0
+  [PASS] input-clock test: constants -s + dE(1) and s + dB(1)
+  [PASS] input-clock test: xi_out = 1 + (s + kappa) x + O(x^2) with kappa = (dB - dE)/2
+  [PASS] A = 4 b0 log 2: SU(2) 0.1287559034, SU(3) 0.1931338551
+  -> Part 2 (electric and magnetic matching): 6/6 checks passed
+  PASS  validate_part2_matching.py  (1 s)
+== Part 3 (drift of the isotropic reference)
+  [PASS] Theorem 3.1: product equals the gamma-function formula (kappa = 0.05, 0.1, -0.1)
+  [PASS] Theorem 3.1: P2(K) ~ [Gamma(q)/Gamma(q+sigma)] K^(kappa/A)  ([1.03669, 1.000369, 1.000037])
+  [PASS] Corollary 3.2: exponent kappa/A = 0.776663 for SU(2), kappa = 0.10  (0.776663)
+  [PASS] Corollary 3.2: kappa = 0 removes the drift; kappa < 0 gives decay
+  [PASS] running checkpoint: y_n - (b + A n) = O(log(n+2))  ([0.9633, 1.2813, 1.536])
+  -> Part 3 (drift of the isotropic reference): 5/5 checks passed
+  PASS  validate_part3_drift.py  (0 s)
+== Part 4 (the running time unit)
+  [PASS] Lemma 4.1: first-order matching <=> (1 - rho) s = kappa
+  [PASS] Corollary 4.2: a block with F(x,z) = z F(x,1) has input slope rho = 1, so matching needs kappa = 0
+  [PASS] Theorem 4.3: |xi(g_{k+1})/xi(g_k) - 1| <= C_xi g_k^4 on 4000 random admissible steps  (max ratio 0.943)
+  [PASS] exact one-loop step: ratio - 1 = s A x^2 / [(1 - A x)(1 + s x)]
+  [PASS] admissible simplified bound C_xi = 6 A |s| under B x* <= A/2, A+ x* <= 1/2, |s| x* <= 1/2
+  [PASS] Corollary 4.4: product telescopes to xi(g_J)/xi(g_0) and tends to xi(g_J)  (1.059349 vs 1.060000)
+  [PASS] Corollary 4.4: integral comparison sum_{n>=L} (b + A n)^-2 <= 1/[A (b + A (L-1))]  (9.8430e-01 <= 9.9248e-01)
+  -> Part 4 (the running time unit): 7/7 checks passed
+  PASS  validate_part4_running_clock.py  (1 s)
+== Parts 4.5-5 (lifting and threshold normalization)
+  [PASS] Proposition 4.5: 1 - (1 - alpha)(1 - zeta) <= alpha + zeta
+  [PASS] Proposition 5.1: gap of H(g_L, z_L) = z_L x isotropic gap (one plaquette)
+  [PASS] Theorem 5.2: exp(-c/g^delta) <= D_delta g^4, D_delta = (4/(e c delta))^(4/delta)
+  [PASS] Theorem 5.2: sum_{j>=0} 4^-j = 4/3
+  [PASS] Theorem 5.2: sum g_k^4 <= g*^4 + g*^2/A- along the backward running bound
+  -> Parts 4.5-5 (lifting and threshold normalization): 5/5 checks passed
+  PASS  validate_part5_threshold.py  (0 s)
+== Numerical inputs (product tables)
+  [PASS] SU(2) K = 10: six table entries to 6 decimals
+  [PASS] SU(2) K = 100: six table entries to 6 decimals
+  [PASS] SU(2) K = 1000: six table entries to 6 decimals
+  [PASS] SU(2) K = 10000: six table entries to 6 decimals
+  [PASS] SU(3) K = 10: six table entries to 6 decimals
+  [PASS] SU(3) K = 100: six table entries to 6 decimals
+  [PASS] SU(3) K = 1000: six table entries to 6 decimals
+  [PASS] SU(3) K = 10000: six table entries to 6 decimals
+  [PASS] P4 gamma formula at K = 10
+  [PASS] P4 gamma formula at K = 1000
+  [PASS] quartic limit 1.139718 (SU(2), kappa = 0.10)  (1.139718)
+  -> Numerical inputs (product tables): 11/11 checks passed
+  PASS  validate_numerical_tables.py  (0 s)
+== Section 7 (composition test and threshold formalism)
+  [PASS] Theorem 13 (Schur/Feshbach extraction): H_eff[zH](zE) = z H_eff[H](E)
+  [PASS] Theorem 13 (transfer extraction): K_eff[zH](t) = z K_eff[H](z t)
+  [PASS] Theorem 15: xi(g) = 1/c_ref(g) satisfies the composition test (4.1) exactly (e_k = 0)
+  [PASS] Theorem 15: the block's output clock F(x,1) = 1 + O(x^2), i.e. kappa = 0
+  [PASS] Corollary 16: the running clock has s = -c1 (first-order coefficient of 1/c_ref)
+  [PASS] Section 7.4: beta_D = 0.013903 and g^2_match(beta_D) = 5.7010 (SU(2))  (5.70102)
+  [PASS] Proposition 18: step counts M <= 91 (A- = A/2) and 46 (A- = A), SU(2), g*^2 = 1/6  (91, 46)
+  -> Section 7 (composition test and threshold formalism): 7/7 checks passed
+  PASS  validate_part6_composition_threshold.py  (1 s)
+ALL CHECKS PASSED
